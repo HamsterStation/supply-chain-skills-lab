@@ -44,7 +44,7 @@ def process(config,state,loader=fetch):
  state=json.loads(json.dumps(state));state.setdefault('schema_version',1);state.setdefault('sources',{});state.setdefault('rejected',[]);state.setdefault('proposed',[]);state.setdefault('failures',{});state['last_attempt_at']=stamp()
  drafts=[];report=[];seen=set();successful=0;limit=min(max(int(config.get('max_updates',3)),0),10)
  for source in config['sources'][:min(config.get('max_sources',20),100)]:
-  sid=source['id'];url=canonical(source['url'])
+  sid=source['id'];request_url=source['url'];url=canonical(request_url)
   if url in seen:report.append({'source':sid,'status':'duplicate_url'});continue
   seen.add(url)
   if not source.get('enabled') or not source.get('terms_reviewed'):
@@ -52,9 +52,9 @@ def process(config,state,loader=fetch):
   try:
    robots_url=urlsplit(url)._replace(path='/robots.txt',query='',fragment='').geturl()
    robots=RobotFileParser();robots.parse(loader(robots_url,source['allowed_hosts']).splitlines())
-   if not robots.can_fetch(AGENT,url):raise ValueError('robots policy does not allow collection')
+   if not robots.can_fetch(AGENT,request_url):raise ValueError('robots policy does not allow collection')
    if source.get('provider','public_page')!='public_page':raise ValueError('Provider disabled until API/RSS endpoint and usage terms are verified')
-   text=normalize(loader(url,source['allowed_hosts']),source.get('selector','main'));content_hash=digest(text);old=state['sources'].get(sid);fingerprint=digest(url+'\n'+content_hash)
+   text=normalize(loader(request_url,source['allowed_hosts']),source.get('selector','main'));content_hash=digest(text);old=state['sources'].get(sid);fingerprint=digest(url+'\n'+content_hash)
    if old and old['content_hash']==content_hash:
     state['sources'][sid]['checked_at']=stamp();report.append({'source':sid,'status':'unchanged'});successful+=1;state['failures'].pop(sid,None);continue
    if fingerprint in state['rejected'] or fingerprint in state['proposed']:

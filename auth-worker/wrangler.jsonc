@@ -1,14 +1,28 @@
 {
   "name": "supply-chain-auth",
+  "account_id": "f3f75771d7c0f78e451be149fa0928d9",
   "main": "src/index.mjs",
   "compatibility_date": "2026-09-22",
   "workers_dev": true,
-  "triggers": {"crons": ["41 * * * *"]},
-  "observability": {"enabled": false},
+  "triggers": {
+    "crons": [
+      "41 * * * *"
+    ]
+  },
+  "observability": {
+    "enabled": false
+  },
   "vars": {
     "SITE_URL": "https://hamsterstation.github.io/supply-chain-skills-lab/",
-    "GITHUB_CLIENT_ID": "CONFIGURE_GITHUB_APP_CLIENT_ID",
-    "GITHUB_APP_SLUG": "CONFIGURE_GITHUB_APP_SLUG"
+    "GITHUB_CLIENT_ID": "Iv23liO9cyq4deC33xQX",
+    "GITHUB_APP_SLUG": "supply-chain-skills-lab-hs"
   },
-  "d1_databases": [{"binding":"DB","database_name":"supply-chain-auth","database_id":"CONFIGURE_D1_DATABASE_ID","migrations_dir":"migrations"}]
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "supply-chain-auth",
+      "database_id": "d4694fc0-051a-44a9-86d9-a69ea6ea5f43",
+      "migrations_dir": "migrations"
+    }
+  ]
 }

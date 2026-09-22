@@ -26,3 +26,14 @@ def test_limit_retry_and_disabled():
  assert canonical('https://EXAMPLE.org/page/?utm_source=x#frag')=='https://example.org/page'
  def denied(url,h):return 'User-agent: *\nDisallow: /'
  r=process(config(),{},denied);assert r['report'][0]['status']=='failed';assert not r['drafts']
+def test_request_preserves_directory_slash_and_robots_path():
+ cfg=config();cfg['sources'][0]['url']='https://example.org/course/'
+ seen=[]
+ def directory_loader(url,hosts):
+  seen.append(url)
+  if url.endswith('robots.txt'):return 'User-agent: *\nAllow: /course/\nDisallow: /course$'
+  assert url=='https://example.org/course/'
+  return '<main>'+TEXT+'</main>'
+ r=process(cfg,{},directory_loader)
+ assert r['report'][0]['status']=='baseline_created'
+ assert seen==['https://example.org/robots.txt','https://example.org/course/']
