@@ -21,7 +21,9 @@ def check(root):
     opener = urllib.request.build_opener(NoRedirect)
 
     def fetch(path, origin=ORIGIN):
-        req = urllib.request.Request(root.rstrip('/') + path, headers={'Origin': origin})
+        req = urllib.request.Request(root.rstrip('/') + path, headers={
+            'Origin': origin, 'User-Agent': 'SupplyChainSkillsLab-DeploymentCheck/1.0',
+            'Accept': 'application/json'})
         try:
             response = opener.open(req, timeout=25)
         except urllib.error.HTTPError as error:
