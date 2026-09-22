@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "mit-curriculum": {
+      "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/pages/lecture-notes",
+      "content_hash": "f053ee107818416ac8bd257ccac0cb251dbb05329d9b2087055fb0249dfe4eae",
+      "checked_at": "2026-09-22T13:00:32.895808+00:00"
+    }
+  },
+  "rejected": [],
+  "proposed": [
+    "8d6562a3d5b0645cc7f1ad9b70821d16ac4001a2cfb5d3a6cb0ffc1b24d4fe7e"
+  ],
+  "failures": {},
+  "last_attempt_at": "2026-09-22T13:00:32.676289+00:00",
+  "last_success_at": "2026-09-22T13:00:32.895880+00:00",
+  "pr_head": "08c8ba76944e96a0c87bf053577de3a7a1e2e98b",
+  "pending_fingerprints": [
+    "8d6562a3d5b0645cc7f1ad9b70821d16ac4001a2cfb5d3a6cb0ffc1b24d4fe7e"
+  ]
+}
