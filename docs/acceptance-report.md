@@ -32,4 +32,10 @@ CIPS 公开文本通过浏览工具核查，程序 HTTP 请求 403；哈希只�
 - 内容仍待供应链领域专家复核，不是机构认证课程。
 - AI 辅导没有启用；不存在模型密钥、付费模型接口或真实模型调用测试。
 
-最新真实 GitHub 发布与 PR 结果另见本任务交付说明及仓库 Actions，不能把本地 Mock 检查等同远程成功。
+## 线上内容流程
+
+2026-09-22 已实际运行 collect → validate → propose，三阶段均成功，创建 [内容草稿 PR #1](https://github.com/HamsterStation/supply-chain-skills-lab/pull/1)，仅新增一份 content/updates JSON。内容为 MIT OCW 历史课程目录的首次收录核查，不宣称近期行业变化。
+
+[线上发布](https://github.com/HamsterStation/supply-chain-skills-lab/actions/runs/35730579862)、[完整自动检查](https://github.com/HamsterStation/supply-chain-skills-lab/actions/runs/35730579705)、[匿名登录服务检查](https://github.com/HamsterStation/supply-chain-skills-lab/actions/runs/35730662312) 均成功。[无变化重跑](https://github.com/HamsterStation/supply-chain-skills-lab/actions/runs/35730974219) 成功：0 项新增、仍为同一 PR、内容分支 head 未改变，远程检查点持久化正常。
+
+机器人创建的 PR 检查实际进入 action_required，等待维护者批准工作流运行；这验证了不能假定 GITHUB_TOKEN 创建 PR 后检查会自动执行。人工批准、审核及合并尚未执行；遵守不自我批准、不自动合并的边界。

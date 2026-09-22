@@ -13,7 +13,7 @@
 1. 采集 job 只有 contents:read。从状态分支恢复检查点，按来源配置和 robots 获取允许的公开正文，去掉导航、广告、页面时间等噪声，计算指纹。
 2. 独立 validate job 没有任何发布、模型或写入密钥，校验内容与提案。
 3. propose job 才拥有 contents:write、pull-requests:write；重新校验提案；用固定路径构造 Git tree，不执行外部生成的命令或 PR 代码。
-4. 人工检查草稿、按需批准检查并审核内容，决定合并。main 分支 push 后运行 `pages.yml`。不自动审核或合并。
+4. 人工检查草稿、按需批准检查并审核内容。决定发布时，在 PR 中将该内容的 status 从 draft 改为 published、将 PR 标为 Ready for review，然后人工合并；只合并 draft 内容不会展示到学习网站。main 分支 push 后运行 `pages.yml`。不自动审核或合并。
 
 每个已启用来源的首次合法获取通常只建立基线，不宣称资料是新发布。受信任配置可提供明确的首次收录说明及原文定位标记；所有标记匹配后才生成“首次收录核查”草稿，并明确历史年代。后续只有正文变化才产生待核查草稿。没有可靠 RSS/API 的来源不假装有；目前实现受控公开页面 provider。搜索 API 与模型生成均 disabled。新增 provider 要独立实现、验证条款和密钥边界。
 
