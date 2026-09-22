@@ -36,6 +36,7 @@ def check(root):
         health = json.loads(data)
     except ValueError:
         health = {}
+        print('Public health response:', data[:500].decode('utf-8',errors='replace'))
     print('Configured:', health.get('ready', 'no health JSON received'))
     assert status == 200 and health.get('ready') is True, 'Service is not ready; see health status above'
     assert headers['Cache-Control'] == 'no-store'
