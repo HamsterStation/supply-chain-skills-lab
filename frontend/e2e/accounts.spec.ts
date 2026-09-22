@@ -1,5 +1,20 @@
 import {test,expect} from '@playwright/test';
 test.use({baseURL:'http://127.0.0.1:5188'});
+test('MOCK one-time login callback opens the learning home and removes its ticket',async({page})=>{
+ let exchanges=0;
+ await page.addInitScript(()=>sessionStorage.setItem('scsl:signin-verifier','test-verifier'));
+ await page.route('https://auth.example.test/api/**',async route=>{
+  const path=new URL(route.request().url()).pathname;
+  if(path==='/api/exchange'){
+   exchanges++;expect(route.request().postDataJSON()).toEqual({ticket:'test-one-use-ticket',verifier:'test-verifier'});
+   await route.fulfill({json:{session:'z'.repeat(43)}});
+  }else await route.fulfill({json:{user:{id:1003,login:'callback-test'},repository:null,last_sync_at:null,install_url:'https://github.com/apps/test/installations/new'}});
+ });
+ await page.goto('/#auth/test-one-use-ticket');
+ await expect(page.getByRole('button',{name:'退出 callback-test'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'没有找到这项内容'})).toHaveCount(0);
+ await expect(page).toHaveURL(/#home$/);expect(exchanges).toBe(1);
+});
 test('MOCK GitHub sign-in isolates Alice/Bob, logout hides records, remote sync is explicit',async({page})=>{
  let who={id:1001,login:'alice-test'};let syncCalls=0;let writes:unknown[]=[];
  await page.addInitScript(()=>sessionStorage.setItem('scsl:application-session','x'.repeat(43)));
