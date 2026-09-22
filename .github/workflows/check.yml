@@ -29,3 +29,6 @@ jobs:
       - run: python -m scripts.generate.bundle
       - run: npm ci --prefix frontend
       - run: npm run build --prefix frontend
+      - run: npx playwright install --with-deps chromium
+        working-directory: frontend
+      - run: npm run test:e2e --prefix frontend
