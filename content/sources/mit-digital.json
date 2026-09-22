@@ -1,0 +1,19 @@
+{
+  "id": "mit-digital",
+  "version": 1,
+  "title": "MIT CTL · 数字供应链转型研究",
+  "url": "https://ctl.mit.edu/research/digital-supply-chain-transformation-lab",
+  "publisher": "MIT",
+  "source_type": "named_research",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "9abf2b5b235b3ebd7ab86d72db56f7fb3acbe7dc347b09cf03a0a9ba09dadc84",
+  "hash_basis": "response_bytes",
+  "verified_excerpt": null,
+  "verification_method": "public_http_response",
+  "terms_url": "https://ctl.mit.edu/research/digital-supply-chain-transformation-lab",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": null
+}

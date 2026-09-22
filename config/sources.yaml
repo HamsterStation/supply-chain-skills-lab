@@ -1,0 +1,46 @@
+# Schedule is defined in .github/workflows/content-update.yml; defaults to weekly.
+max_updates: 3
+max_sources: 20
+search_provider: disabled
+model_provider: disabled
+sources:
+  - id: mit-scm
+    title: MIT SCM 课程入口
+    url: https://micromasters.mit.edu/scm/
+    allowed_hosts: [micromasters.mit.edu]
+    selector: main
+    provider: public_page
+    enabled: false
+    terms_reviewed: false
+    reason: 已人工核查内容；批量定期访问的使用条件需另行确认。
+    skill_ids: [flow, forecast, replenishment]
+  - id: mit-digital
+    title: MIT 数字供应链研究目录
+    url: https://ctl.mit.edu/research/digital-supply-chain-transformation-lab
+    allowed_hosts: [ctl.mit.edu]
+    selector: main
+    provider: public_page
+    enabled: false
+    terms_reviewed: false
+    reason: 已核查公开研究目录；不自动采用首页的成效数字。
+    skill_ids: [responsible-ai, risk]
+  - id: ms-types
+    title: Power Query 数据类型
+    url: https://learn.microsoft.com/en-us/power-query/data-types
+    allowed_hosts: [learn.microsoft.com]
+    selector: main
+    provider: public_page
+    enabled: false
+    terms_reviewed: false
+    reason: 已人工核查；定时访问需确认具体条款与 robots。
+    skill_ids: [data-quality, power-query]
+  - id: cips-tco
+    title: CIPS 总拥有成本
+    url: https://www.cips.org/intelligence-hub/finance/total-cost-of-ownership
+    allowed_hosts: [www.cips.org]
+    selector: main
+    provider: public_page
+    enabled: false
+    terms_reviewed: false
+    reason: 人工可核查公开文本，但程序请求返回 403；不绕过限制。
+    skill_ids: [tco, sourcing]

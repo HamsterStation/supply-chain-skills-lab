@@ -1,0 +1,19 @@
+{
+  "id": "cips-risk",
+  "version": 1,
+  "title": "CIPS · 风险管理",
+  "url": "https://www.cips.org/intelligence-hub/risk-management",
+  "publisher": "CIPS",
+  "source_type": "public_method",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "84570eac9e26336610aa10f2f2590536e9e85de9cf4ce71f8a19ecd8648b1754",
+  "hash_basis": "verified_short_excerpt",
+  "verified_excerpt": "Risk identification",
+  "verification_method": "public_browser_text; automated_http_403",
+  "terms_url": "https://www.cips.org/about-us/terms-conditions",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": null
+}

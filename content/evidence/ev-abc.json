@@ -1,0 +1,35 @@
+{
+  "id": "ev-abc",
+  "version": 1,
+  "source_id": "mit-fundamentals",
+  "original_url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/2454b7afcf6daeaba05aeb81e8b3e671_lect2.pdf",
+  "publisher": "MIT",
+  "source_type": "course",
+  "published_at": "2006-09-01",
+  "date_precision": "month",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "讲义用需求量与单价构造年度价值，并演示产品分段。",
+  "editorial_recommendation": "先按价值观察商品差异，再补充关键性。",
+  "uncertainty": "分类阈值不是跨行业统一的规定。",
+  "locator": "讲义第 17–20 页：Segmentation: ABC Analysis",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "e5e84f6cc157835c74d1a82f236c2f31133dbe5475936b2948f0b100ad6d9258",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/2454b7afcf6daeaba05aeb81e8b3e671_lect2.pdf",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

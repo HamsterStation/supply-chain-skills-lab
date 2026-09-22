@@ -1,0 +1,35 @@
+{
+  "id": "ev-duplicates",
+  "version": 1,
+  "source_id": "ms-duplicates",
+  "original_url": "https://learn.microsoft.com/en-us/power-query/working-with-duplicates",
+  "publisher": "Microsoft",
+  "source_type": "tool_documentation",
+  "published_at": null,
+  "date_precision": "unknown",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "文档说明按选定列判断重复，文本比较区分大小写。",
+  "editorial_recommendation": "去重前确定业务主键并保留异常记录。",
+  "uncertainty": "系统订单行重复不一定是重复业务。",
+  "locator": "Remove duplicate rows / Remove duplicates from multiple columns",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "e387a832511dd034fee46188ec45f1f1591cf70504342e0027f5defc28356f00",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://learn.microsoft.com/en-us/power-query/working-with-duplicates",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

@@ -1,0 +1,89 @@
+name: Propose content updates
+on:
+  schedule:
+    - cron: '17 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Create/update a draft PR after validation (false = dry-run)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: weekly-content-update
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m scripts.collect.checkpoint
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: python -m scripts.collect.pipeline
+      - name: Bind proposal to its durable checkpoint
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('work/collection/proposal.json')
+          data=json.loads(p.read_text())
+          data['expected_state_sha']=json.loads(Path('state/expected.json').read_text())
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: content-proposal
+          path: work/collection/
+          retention-days: 30
+  validate:
+    needs: collect
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: content-proposal
+          path: work/collection
+      - run: python -m scripts.validate.content
+      - run: python -m scripts.collect.github_pr
+  propose:
+    needs: validate
+    if: github.event_name == 'schedule' || inputs.publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: content-proposal
+          path: work/collection
+      - name: Revalidate and create PR using trusted script
+        run: python -m scripts.collect.github_pr --publish
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

@@ -1,0 +1,62 @@
+{
+  "id": "power-query",
+  "version": 1,
+  "title": "可复用的数据整理",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "Power Query transformations",
+  "aliases": [
+    "PQ",
+    "powerquery",
+    "查询",
+    "合并",
+    "去重"
+  ],
+  "domain": "F",
+  "roles": [
+    "供应链数据分析",
+    "需求、供应与库存计划",
+    "采购与供应商管理"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "进阶"
+  ],
+  "level": "进阶",
+  "kind": "software",
+  "business_problem": "每次人工整理都引入新差异",
+  "prerequisites": [
+    "data-quality"
+  ],
+  "objectives": [
+    "描述可重复执行的数据转换步骤"
+  ],
+  "tools": [
+    "Power Query"
+  ],
+  "lessons": [
+    "lesson-data"
+  ],
+  "course_status": "available",
+  "exercises": [
+    "lesson-data"
+  ],
+  "deliverable": "转换步骤清单",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-types",
+    "ev-duplicates"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": []
+}

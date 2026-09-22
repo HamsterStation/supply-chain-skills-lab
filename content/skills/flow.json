@@ -1,0 +1,62 @@
+{
+  "id": "flow",
+  "version": 1,
+  "title": "端到端流程与业务约束",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "End-to-end flow",
+  "aliases": [
+    "流程",
+    "物料流",
+    "信息流",
+    "资金流",
+    "端到端"
+  ],
+  "domain": "A",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "基础"
+  ],
+  "level": "基础",
+  "kind": "business",
+  "business_problem": "交期承诺与实际能力不一致",
+  "prerequisites": [],
+  "objectives": [
+    "解释订单从需求到交付的约束"
+  ],
+  "tools": [
+    "纸笔"
+  ],
+  "lessons": [
+    "lesson-flow"
+  ],
+  "course_status": "available",
+  "exercises": [
+    "lesson-flow"
+  ],
+  "deliverable": "一张流程与约束图",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-flow"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": []
+}

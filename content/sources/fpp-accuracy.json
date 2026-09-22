@@ -1,0 +1,24 @@
+{
+  "id": "fpp-accuracy",
+  "version": 1,
+  "title": "FPP3 · 样本外预测评价",
+  "url": "https://otexts.com/fpp3/accuracy.html",
+  "publisher": "Hyndman & Athanasopoulos / OTexts",
+  "source_type": "course",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "dc2216dc7b51bd625583401151dd7919677489502d4aa087e720f0b4d6f05e54",
+  "hash_basis": "response_bytes",
+  "verified_excerpt": null,
+  "verification_method": "public_http_response",
+  "terms_url": "https://otexts.com/fpp3/accuracy.html",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": {
+    "name": "Rob J Hyndman / George Athanasopoulos",
+    "identity_basis": "Forecasting: Principles and Practice 第三版作者署名",
+    "field": "预测方法与评价",
+    "work": "https://otexts.com/fpp3/accuracy.html"
+  }
+}

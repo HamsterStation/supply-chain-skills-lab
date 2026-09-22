@@ -1,0 +1,78 @@
+{
+  "id": "lesson-data",
+  "version": 1,
+  "title": "供应链数据清理与 Excel 分析",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "subtitle": "先保留问题，再整理数据。",
+  "estimated_minutes": 25,
+  "goals": [
+    "能按业务主键检查重复",
+    "能记录缺失值与单位转换"
+  ],
+  "prerequisites": [],
+  "evidence": [
+    "ev-types",
+    "ev-duplicates"
+  ],
+  "sections": [
+    {
+      "id": "lesson-data-step-1",
+      "title": "具体问题",
+      "body": "原创订单行：R1 / SKU-01 / 10 件；R1 / SKU-01 / 10 件（重复导出）；R2 / SKU-01 / 2 箱（每箱 6 件）；R3 / SKU-02 / 数量空白。业务已确认主键是订单行 ID，前两条是同一行重复导出；这不是可任意套用的去重规则。"
+    },
+    {
+      "id": "lesson-data-step-2",
+      "title": "完整示例：清理日志",
+      "body": "保留原始表为只读副本。给 R1 的重复记录加“重复导出”标签并排除一条；把 R2 的 2 箱换为 12 件，同时保留原单位、换算系数和原数量；R3 放进异常表。可核查的 SKU-01 数量是 10+12=22 件。R3 仍是未知，不能变成 0。"
+    },
+    {
+      "id": "lesson-data-step-3",
+      "title": "Excel 操作步骤",
+      "body": "建立列：订单行 ID、SKU、原数量、原单位、每单位件数、标准数量、状态。将 SKU 列设为文本，避免前导零丢失。标准数量只对已知数据用“原数量 × 换算系数”。用筛选找空值、非法日期和负数量，再对状态正常的行建立数据透视表，行字段选 SKU，值字段汇总标准数量。检查汇总合计等于清理后的行合计。"
+    },
+    {
+      "id": "lesson-data-step-4",
+      "title": "可选：Power Query",
+      "body": "Power Query 是可重复的数据导入与转换工具。可记录设置类型、按业务主键检查重复、单位转换、异常分流的步骤。它的文本比较区分大小写，删除重复的保留顺序不可想当然；若 SKU 大小写代表同一编码，先与业务确认再统一。日期转换要明确原文件地区格式。这里不要求安装它，Excel 手工表也能完成。"
+    },
+    {
+      "id": "lesson-data-step-5",
+      "title": "我补一步与复盘",
+      "body": "清理日志至少写“哪行、什么问题、采用什么规则、影响多少、谁能确认”。例如：R3 数量缺失，未进入可用数量汇总，等待业务确认。缺失率也应报告：去重后 3 条业务记录，其中 1 条数量缺失。保存清理前后行数，不用漂亮图表掩盖未知。"
+    }
+  ],
+  "question": {
+    "id": "lesson-data-q1",
+    "prompt": "去重后的 SKU-01 有 10 件和 2 箱，每箱 6 件。标准数量合计是多少？",
+    "answer": 22,
+    "unit": "件",
+    "tolerance": 0.01,
+    "hint": "先把箱转换成件。",
+    "explanation": "10 + 2 × 6 = 22 件；R3 缺失不可补零。"
+  },
+  "variant": {
+    "id": "lesson-data-q2",
+    "prompt": "变式：8 件，加 3 箱、每箱 4 件，合计多少？",
+    "answer": 20,
+    "unit": "件",
+    "tolerance": 0.01,
+    "hint": "8 + 3 × 4。",
+    "explanation": "合计 20 件。"
+  },
+  "open_task": "在纸上或 Excel 写出这四行的清理日志和最终汇总，不上传公司文件。",
+  "rubric": [
+    "主键经业务确认",
+    "保留原值与换算规则",
+    "未知值单列",
+    "行数与数量可对账"
+  ],
+  "misconceptions": [
+    "按 SKU 去重误删不同订单",
+    "把空值、退货负数和真实零混为一谈"
+  ],
+  "limitations": [
+    "示例中箱规固定；真实箱规、日期格式和退货语义需要核查。"
+  ],
+  "synthetic": true
+}

@@ -1,0 +1,18 @@
+import {test,expect} from '@playwright/test';
+test('lesson feedback, hint provenance and note survive reload',async({page})=>{
+ await page.goto('/#lesson/lesson-flow');await expect(page.getByRole('heading',{name:'看懂端到端流程与业务约束',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'一步步带练',exact:true}).click();await page.getByRole('button',{name:'下一步',exact:true}).click();await expect(page.getByRole('heading',{name:'完整示例：把时间放进流程'})).toBeVisible();
+ await page.getByRole('button',{name:'直接查看解析',exact:true}).click();await expect(page.getByText('参考解析：20 + 3 × 30')).toBeVisible();await page.getByLabel('你的答案',{exact:true}).fill('110');await page.getByRole('button',{name:'保存并检查'}).click();await expect(page.getByText('计算正确。再检查单位与适用条件。')).toBeVisible();
+ await expect(page.getByRole('heading',{name:'提示后完成',exact:true})).toBeVisible();await page.getByLabel('我的笔记',{exact:true}).fill('E2E：库存和产能必须区分时间口径。');await page.getByRole('button',{name:'保存笔记',exact:true}).click();await page.reload();await expect(page.getByLabel('我的笔记',{exact:true})).toHaveValue('E2E：库存和产能必须区分时间口径。');
+ await page.getByRole('button',{name:'换一道变式题'}).click();await page.getByLabel('你的答案',{exact:true}).fill('65');await page.getByRole('button',{name:'保存并检查'}).click();await expect(page.getByRole('heading',{name:'独立完成',exact:true})).toBeVisible();
+});
+test('search aliases, case submit, revision preservation, backup roundtrip',async({page})=>{
+ await page.goto('/#skills');await page.getByLabel('搜索技能').fill('MOQ');await expect(page.getByRole('heading',{name:'报价与总成本边界'})).toBeVisible();
+ await page.goto('/#case/case-supplier');await page.getByLabel('甲已知现金支出（元）').fill('1100');await page.getByLabel('乙已知现金支出（元）').fill('1430');await page.getByLabel('建议说明').fill('优先核查丙的质量与产能，甲作为替代；尚未纳入税费及持有成本。');await page.getByRole('button',{name:'保存作品并核查'}).click();await expect(page.getByRole('heading',{name:'提交历史 · 1 个版本'})).toBeVisible();await page.getByLabel('建议说明').fill('第二次：选择甲，交期和价格均可行，仍需锁定产能。');await page.getByRole('button',{name:'保存作品并核查'}).click();await page.reload();await expect(page.getByRole('heading',{name:'提交历史 · 2 个版本'})).toBeVisible();
+ await page.goto('/#space');await page.getByRole('button',{name:'备份与恢复',exact:true}).click();const dl=page.waitForEvent('download');await page.getByRole('button',{name:'导出全部学习记录'}).click();const file=await dl;const path=await file.path();await page.locator('input[type=file]').setInputFiles(path!);await expect(page.getByText('备份恢复完成。重复 ID 不重复导入。')).toBeVisible();
+});
+test('profile skip, route rule and responsive overflow',async({page})=>{
+ await page.goto('/#space/settings');await page.getByLabel('当前或目标方向').selectOption('procurement');await page.getByLabel('复习间隔（天）').fill('7');await page.getByRole('button',{name:'保存设置'}).click();await page.reload();await expect(page.getByLabel('当前或目标方向')).toHaveValue('procurement');
+ for(const width of [390,1440]){await page.setViewportSize({width,height:900});for(const route of ['home','skills','cases','case/case-inventory','sources','space']){await page.goto('/#'+route);await page.waitForTimeout(80);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBeTruthy();}}
+});
+test('visual desktop and mobile captures',async({page})=>{await page.setViewportSize({width:1440,height:1100});await page.goto('/#home');await expect(page.getByRole('heading',{name:'今天，从一个好问题开始。'})).toBeVisible();await page.screenshot({path:'../work/desktop-home.png',fullPage:true});await page.setViewportSize({width:390,height:844});await page.goto('/#lesson/lesson-inventory');await expect(page.getByRole('heading',{name:'库存分类与补货问题',exact:true})).toBeVisible();await page.screenshot({path:'../work/mobile-lesson.png',fullPage:true});});

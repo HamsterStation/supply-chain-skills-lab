@@ -1,0 +1,89 @@
+{
+  "id": "case-supplier",
+  "version": 1,
+  "title": "案例 B · 供应商选择",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "synthetic": true,
+  "seed": 20260922,
+  "description": "为 100 件合成包装组件选择可解释的采购方案。交付期限为 10 个自然日；本次只比较货款和每单运费。",
+  "goals": [
+    "计算 MOQ 对采购量和现金支出的影响",
+    "在硬约束与不确定条件下比较方案"
+  ],
+  "prerequisites": [
+    "lesson-supplier",
+    "lesson-risk"
+  ],
+  "evidence": [
+    "ev-tco",
+    "ev-sourcing"
+  ],
+  "rows": [
+    {
+      "supplier": "甲",
+      "unit_price_cny": 10,
+      "freight_cny": 100,
+      "lead_days": 7,
+      "moq_units": 100,
+      "quality_status": "教学设定已满足规格",
+      "capacity_status": "仍需确认本次可锁定数量"
+    },
+    {
+      "supplier": "乙",
+      "unit_price_cny": 9,
+      "freight_cny": 80,
+      "lead_days": 14,
+      "moq_units": 150,
+      "quality_status": "教学设定已满足规格",
+      "capacity_status": "仍需确认本次可锁定数量"
+    },
+    {
+      "supplier": "丙",
+      "unit_price_cny": 11,
+      "freight_cny": 0,
+      "lead_days": 5,
+      "moq_units": 80,
+      "quality_status": "待样品确认，不可直接判为合格",
+      "capacity_status": "仍需确认本次可锁定数量"
+    }
+  ],
+  "dictionary": {
+    "supplier": "虚构代号，不是真实供应商",
+    "unit_price_cny": "人民币元/件；同一报价时点，不含税",
+    "freight_cny": "人民币元/订单，不是每件运费",
+    "lead_days": "确认订单后到货的自然日",
+    "moq_units": "最小起订量，件；没有整箱倍数要求",
+    "quality_status": "教学质量约束",
+    "capacity_status": "须落实的能力信息"
+  },
+  "steps": [
+    "下载数据，写下需要 100 件、10 日到货的要求。",
+    "数量取 max(100,MOQ)，支出=数量×单价+每单运费。",
+    "计算多买数量，并比较交期和质量状态。",
+    "选择任一有条件可行的方案，说明其他选择的取舍。",
+    "提交计算结果与建议；说明税费、资金、质量损失等未纳入项。"
+  ],
+  "answer_fields": [
+    {
+      "key": "cost_a",
+      "label": "甲已知现金支出（元）"
+    },
+    {
+      "key": "cost_b",
+      "label": "乙已知现金支出（元）"
+    }
+  ],
+  "rubric": [
+    "MOQ 与单位正确",
+    "成本边界明确",
+    "质量、交期和产能约束分开",
+    "不同选择有可核查的理由"
+  ],
+  "limitations": [
+    "原创合成数据，非真实报价。",
+    "不含税、仓储、资金占用、质量损失或报废，不能称为完整生命周期 TCO。",
+    "只有最小起订量，没有包装倍数约束。"
+  ],
+  "reference_note": "甲与丙的已知现金支出都为 1100 元。丙须先通过样品确认。乙需解释如何解决交期与多买 50 件的问题，不按所选名称判对错。"
+}

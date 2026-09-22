@@ -1,0 +1,109 @@
+domains:
+  A: 端到端供应链与商业理解
+  B: 需求与供应计划
+  C: 库存与补货
+  D: 采购与供应商管理
+  E: 生产、物流与履约
+  F: 数据与业务系统
+  G: 决策、协作与落地
+  H: 风险、可持续性与前沿技术
+tracks:
+- id: procurement
+  title: 采购与供应商管理
+  description: 关注支出、供应商价值与风险。
+  skills:
+  - flow
+  - metrics
+  - tco
+  - sourcing
+  - data-quality
+  - memo
+  - risk
+  reason: 共同基础优先；其后按业务关联与先修关系排序。可自由调整，不锁课。
+- id: planning
+  title: 需求、供应与库存计划
+  description: 关注需求、供给、库存与服务的平衡。
+  skills:
+  - flow
+  - metrics
+  - forecast
+  - forecast-error
+  - abc
+  - replenishment
+  - data-quality
+  - memo
+  - risk
+  reason: 共同基础优先；其后按业务关联与先修关系排序。可自由调整，不锁课。
+- id: production
+  title: 生产与物料计划
+  description: 关注物料、产能与交付的时间约束。
+  skills:
+  - flow
+  - metrics
+  - forecast
+  - forecast-error
+  - abc
+  - replenishment
+  - material
+  - data-quality
+  - memo
+  - risk
+  reason: 共同基础优先；其后按业务关联与先修关系排序。可自由调整，不锁课。
+- id: logistics
+  title: 物流与履约
+  description: 关注仓储、运输与客户交付。
+  skills:
+  - flow
+  - metrics
+  - abc
+  - replenishment
+  - transport
+  - data-quality
+  - memo
+  - risk
+  reason: 共同基础优先；其后按业务关联与先修关系排序。可自由调整，不锁课。
+- id: analytics
+  title: 供应链数据分析
+  description: 关注数据质量、指标与可解释的业务分析。
+  skills:
+  - flow
+  - metrics
+  - forecast
+  - forecast-error
+  - data-quality
+  - memo
+  - risk
+  reason: 共同基础优先；其后按业务关联与先修关系排序。可自由调整，不锁课。
+- id: management
+  title: 供应链综合管理
+  description: 关注端到端协作、取舍与落地。
+  skills:
+  - flow
+  - metrics
+  - tco
+  - sourcing
+  - material
+  - transport
+  - data-quality
+  - memo
+  - risk
+  reason: 共同基础优先；其后按业务关联与先修关系排序。可自由调整，不锁课。
+common:
+- flow
+- metrics
+- data-quality
+- memo
+optional_advanced:
+- sql
+- systems
+- responsible-ai
+- power-query
+- service
+planned_topics:
+- S&OP（销售与运营计划）
+- 多级库存
+- 支出分析与合同管理
+- 仓储流程改进
+- BI（商业智能）
+- 可持续性评估
+- 按需选择的 Python、优化建模与高级分析

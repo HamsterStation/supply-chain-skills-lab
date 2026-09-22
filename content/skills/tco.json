@@ -1,0 +1,62 @@
+{
+  "id": "tco",
+  "version": 1,
+  "title": "报价与总成本边界",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "Total cost of ownership",
+  "aliases": [
+    "TCO",
+    "MOQ",
+    "成本",
+    "报价",
+    "采购"
+  ],
+  "domain": "D",
+  "roles": [
+    "采购与供应商管理",
+    "供应链综合管理"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "基础"
+  ],
+  "level": "基础",
+  "kind": "business",
+  "business_problem": "低单价掩盖最小起订量与运输成本",
+  "prerequisites": [
+    "data-quality"
+  ],
+  "objectives": [
+    "计算已知成本并列出未纳入项目"
+  ],
+  "tools": [
+    "Excel"
+  ],
+  "lessons": [
+    "lesson-supplier"
+  ],
+  "course_status": "available",
+  "exercises": [
+    "lesson-supplier"
+  ],
+  "deliverable": "供应商成本比较表",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-tco"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": [
+    "case-supplier"
+  ]
+}

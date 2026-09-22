@@ -1,0 +1,4 @@
+﻿supplier,unit_price_cny,freight_cny,lead_days,moq_units,quality_status,capacity_status
+甲,10,100,7,100,教学设定已满足规格,仍需确认本次可锁定数量
+乙,9,80,14,150,教学设定已满足规格,仍需确认本次可锁定数量
+丙,11,0,5,80,待样品确认，不可直接判为合格,仍需确认本次可锁定数量

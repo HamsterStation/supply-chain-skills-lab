@@ -1,0 +1,131 @@
+{
+  "case-inventory": {
+    "baseline": [
+      {
+        "sku": "SKU-01",
+        "daily_demand": 10.178571,
+        "ip": 45,
+        "target": 121.785714,
+        "quantity": 77,
+        "days_on_hand": 2.456,
+        "prearrival_risk": false,
+        "sample_value": 3420
+      },
+      {
+        "sku": "SKU-02",
+        "daily_demand": 23.392857,
+        "ip": 300,
+        "target": 305.321429,
+        "quantity": 6,
+        "days_on_hand": 9.405,
+        "prearrival_risk": false,
+        "sample_value": 1310
+      },
+      {
+        "sku": "SKU-03",
+        "daily_demand": 5.964286,
+        "ip": 18,
+        "target": 83.571429,
+        "quantity": 66,
+        "days_on_hand": 3.018,
+        "prearrival_risk": false,
+        "sample_value": 668
+      },
+      {
+        "sku": "SKU-04",
+        "daily_demand": 2.964286,
+        "ip": 83,
+        "target": 47.5,
+        "quantity": 0,
+        "days_on_hand": 28.0,
+        "prearrival_risk": false,
+        "sample_value": 664
+      },
+      {
+        "sku": "SKU-05",
+        "daily_demand": 15.071429,
+        "ip": 70,
+        "target": 165.642857,
+        "quantity": 96,
+        "days_on_hand": 2.986,
+        "prearrival_risk": false,
+        "sample_value": 2110
+      }
+    ],
+    "demand_plus_20_percent": [
+      {
+        "sku": "SKU-01",
+        "daily_demand": 12.214286,
+        "ip": 45,
+        "target": 142.142857,
+        "quantity": 98,
+        "days_on_hand": 2.047,
+        "prearrival_risk": false,
+        "sample_value": 3420
+      },
+      {
+        "sku": "SKU-02",
+        "daily_demand": 28.071429,
+        "ip": 300,
+        "target": 356.785714,
+        "quantity": 57,
+        "days_on_hand": 7.837,
+        "prearrival_risk": false,
+        "sample_value": 1310
+      },
+      {
+        "sku": "SKU-03",
+        "daily_demand": 7.157143,
+        "ip": 18,
+        "target": 97.885714,
+        "quantity": 80,
+        "days_on_hand": 2.515,
+        "prearrival_risk": false,
+        "sample_value": 668
+      },
+      {
+        "sku": "SKU-04",
+        "daily_demand": 3.557143,
+        "ip": 83,
+        "target": 55.8,
+        "quantity": 0,
+        "days_on_hand": 23.333,
+        "prearrival_risk": false,
+        "sample_value": 664
+      },
+      {
+        "sku": "SKU-05",
+        "daily_demand": 18.085714,
+        "ip": 70,
+        "target": 192.771429,
+        "quantity": 123,
+        "days_on_hand": 2.488,
+        "prearrival_risk": false,
+        "sample_value": 2110
+      }
+    ]
+  },
+  "case-supplier": [
+    {
+      "supplier": "甲",
+      "quantity": 100,
+      "known_cash_cost": 1100,
+      "excess": 0,
+      "within_deadline": true
+    },
+    {
+      "supplier": "乙",
+      "quantity": 150,
+      "known_cash_cost": 1430,
+      "excess": 50,
+      "within_deadline": false
+    },
+    {
+      "supplier": "丙",
+      "quantity": 100,
+      "known_cash_cost": 1100,
+      "excess": 0,
+      "within_deadline": true
+    }
+  ]
+}

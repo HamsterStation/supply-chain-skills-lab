@@ -1,0 +1,35 @@
+{
+  "id": "ev-transport",
+  "version": 1,
+  "source_id": "mit-transport",
+  "original_url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/06ab054739b3882c4bda862570c7266b_lect20.pdf",
+  "publisher": "MIT",
+  "source_type": "course",
+  "published_at": "2006-09-01",
+  "date_precision": "month",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "讲义讨论运输的基本问题及其与库存的联系。",
+  "editorial_recommendation": "比较运费时同时检查批量、频率和到货要求。",
+  "uncertainty": "2006 年的运价和市场背景不可作为当前报价。",
+  "locator": "Transportation / Inventory considerations",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "c3f99dcaccf97152f14f0a7f00d25b1adce2edbf4b945218e628fc78fcfe3457",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/06ab054739b3882c4bda862570c7266b_lect20.pdf",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

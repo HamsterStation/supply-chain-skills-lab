@@ -1,0 +1,55 @@
+{
+  "id": "sql",
+  "version": 1,
+  "title": "业务数据查询",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "Structured Query Language",
+  "aliases": [
+    "SQL",
+    "数据库",
+    "join",
+    "select",
+    "BI"
+  ],
+  "domain": "F",
+  "roles": [
+    "供应链数据分析"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "进阶"
+  ],
+  "level": "进阶",
+  "kind": "software",
+  "business_problem": "跨业务表难以稳定汇总",
+  "prerequisites": [
+    "data-quality"
+  ],
+  "objectives": [
+    "按业务口径设计筛选与汇总查询"
+  ],
+  "tools": [
+    "SQL"
+  ],
+  "lessons": [],
+  "course_status": "planned",
+  "exercises": [],
+  "deliverable": "查询说明与验算表",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-sql"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": []
+}

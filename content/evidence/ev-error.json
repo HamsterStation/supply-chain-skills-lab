@@ -1,0 +1,35 @@
+{
+  "id": "ev-error",
+  "version": 1,
+  "source_id": "fpp-accuracy",
+  "original_url": "https://otexts.com/fpp3/accuracy.html",
+  "publisher": "Hyndman & Athanasopoulos / OTexts",
+  "source_type": "course",
+  "published_at": null,
+  "date_precision": "unknown",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "教材要求在未用于拟合的数据上评价预测，并指出零实际值会使百分比误差不适用。",
+  "editorial_recommendation": "按时间划分数据；报告平均绝对误差和适用限制。",
+  "uncertainty": "一次小样本评价不能证明长期最优。",
+  "locator": "5.8：Training and test sets / Percentage errors",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "dc2216dc7b51bd625583401151dd7919677489502d4aa087e720f0b4d6f05e54",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://otexts.com/fpp3/accuracy.html",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

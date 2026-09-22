@@ -1,0 +1,19 @@
+{
+  "id": "cips-framework",
+  "version": 1,
+  "title": "CIPS · 采购与供应能力框架",
+  "url": "https://www.cips.org/intelligence-hub/global-standard-for-procurement-supply",
+  "publisher": "CIPS",
+  "source_type": "framework",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "a83aba78accbaeac0d99238bc47b408e06753ab69027177f54e940742f3227a6",
+  "hash_basis": "verified_short_excerpt",
+  "verified_excerpt": "Communication, Critical thinking, Developing relationships",
+  "verification_method": "public_browser_text; automated_http_403",
+  "terms_url": "https://www.cips.org/about-us/terms-conditions",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": null
+}

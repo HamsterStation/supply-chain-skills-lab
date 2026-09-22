@@ -1,0 +1,24 @@
+{
+  "id": "mit-inventory",
+  "version": 1,
+  "title": "MIT OCW · 库存策略与服务水平",
+  "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/8b53c45fd26ffff706d815131e8d177e_lect11.pdf",
+  "publisher": "MIT",
+  "source_type": "course",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": "2006-09-01",
+  "date_precision": "month",
+  "content_hash": "33ddb6947f1ec82eb86b97731a20c9e333bab0e9179b008d918893139c54622d",
+  "hash_basis": "response_bytes",
+  "verified_excerpt": null,
+  "verification_method": "public_http_response",
+  "terms_url": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": {
+    "name": "Chris Caplice",
+    "identity_basis": "原始讲义署名及 MIT OCW 教师目录",
+    "field": "物流系统、库存与供应链教学",
+    "work": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/8b53c45fd26ffff706d815131e8d177e_lect11.pdf"
+  }
+}

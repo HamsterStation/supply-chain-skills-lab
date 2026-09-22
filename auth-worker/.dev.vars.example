@@ -1,0 +1,3 @@
+# Local Worker-only secrets. Copy to .dev.vars (ignored) and fill privately.
+GITHUB_CLIENT_SECRET=
+TOKEN_ENCRYPTION_KEY=

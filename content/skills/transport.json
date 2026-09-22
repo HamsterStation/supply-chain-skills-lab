@@ -1,0 +1,60 @@
+{
+  "id": "transport",
+  "version": 1,
+  "title": "运输与履约取舍",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "Transportation trade-offs",
+  "aliases": [
+    "物流",
+    "仓储",
+    "运输",
+    "履约",
+    "网络"
+  ],
+  "domain": "E",
+  "roles": [
+    "物流与履约",
+    "供应链综合管理"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "基础"
+  ],
+  "level": "基础",
+  "kind": "business",
+  "business_problem": "只降低运费导致交付延迟",
+  "prerequisites": [
+    "metrics"
+  ],
+  "objectives": [
+    "比较运费、时效与发运批量"
+  ],
+  "tools": [
+    "Excel"
+  ],
+  "lessons": [
+    "lesson-metrics"
+  ],
+  "course_status": "available",
+  "exercises": [
+    "lesson-metrics"
+  ],
+  "deliverable": "服务与成本权衡说明",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-transport"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": []
+}

@@ -1,0 +1,35 @@
+{
+  "id": "ev-sql",
+  "version": 1,
+  "source_id": "ms-sql",
+  "original_url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/",
+  "publisher": "Microsoft",
+  "source_type": "tool_documentation",
+  "published_at": null,
+  "date_precision": "unknown",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "官方模块涵盖关系数据库中的查询、筛选和排序等入门内容。",
+  "editorial_recommendation": "需要重复汇总业务数据时，可选学结构化查询语言 SQL。",
+  "uncertainty": "不要求每位学习者掌握编程；具体数据库语法需另查。",
+  "locator": "Learning objectives",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "25ff3a3ea29079b96c5c6f3c5cfe56d266126ccc92b80c5ca35060dd84804500",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

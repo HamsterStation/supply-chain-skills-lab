@@ -1,0 +1,19 @@
+{
+  "id": "ms-sql",
+  "version": 1,
+  "title": "Microsoft · Transact-SQL 入门",
+  "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/",
+  "publisher": "Microsoft",
+  "source_type": "tool_documentation",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "25ff3a3ea29079b96c5c6f3c5cfe56d266126ccc92b80c5ca35060dd84804500",
+  "hash_basis": "response_bytes",
+  "verified_excerpt": null,
+  "verification_method": "public_http_response",
+  "terms_url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-transact-sql/",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": null
+}

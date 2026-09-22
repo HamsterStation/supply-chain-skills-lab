@@ -1,0 +1,82 @@
+{
+  "id": "lesson-inventory",
+  "version": 1,
+  "title": "库存分类与补货问题",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "subtitle": "先分清库存位置，再讨论该买多少。",
+  "estimated_minutes": 25,
+  "goals": [
+    "能计算库存位置和定期补货量",
+    "能解释经验缓冲不等于服务承诺"
+  ],
+  "prerequisites": [
+    "lesson-data",
+    "lesson-metrics"
+  ],
+  "evidence": [
+    "ev-abc",
+    "ev-policy",
+    "ev-service"
+  ],
+  "sections": [
+    {
+      "id": "lesson-inventory-step-1",
+      "title": "具体问题",
+      "body": "原创教学数据：某 SKU（库存保有单位）的平均需求为 10 件/日，现有 30 件，在途 20 件，欠交 5 件。在途确认会在保护期内到货，欠交不再包含在未来需求预测中，未另有已承诺量。每天过去的销售并不一定等于无约束需求。"
+    },
+    {
+      "id": "lesson-inventory-step-2",
+      "title": "完整示例：定期检查补货",
+      "body": "库存位置 IP = 现有 + 在途 − 欠交 = 45 件。教学设定每 R=7 日检查一次、交期 L=3 日，保护期 R+L=10 日。给定经验缓冲 B=20 件，目标 S = 日均需求 d × (R+L) + B = 120 件。建议订货 Q=max(0,S−IP)=75 件。这里没有最小起订量和整箱约束。"
+    },
+    {
+      "id": "lesson-inventory-step-3",
+      "title": "符号、单位与假设",
+      "body": "d 用件/日，R、L 都用日，B、S、IP、Q 都用件。保护期包含下次检查前的等待与随后到货的等待。假设需求均匀、交期确定、在途及时可用，缓冲是教学设定而非统计估计。若未来需求已包括欠交，再扣欠交就重复计算。若在途晚于需要时点，聚合库存位置可能掩盖短期缺货，需逐日核查。"
+    },
+    {
+      "id": "lesson-inventory-step-4",
+      "title": "先分类，再安排管理精力",
+      "body": "ABC 分类可以按年度用量×单价形成年度耗用价值，降序排列并计算累计占比；阈值须公开，例如教学中可讨论 80% 与 95% 分界，而不是声称存在统一标准。临界项如何归组要一致。高价值不等于高关键性：便宜但不可替代的零件同样可能停产，应另外标注。"
+    },
+    {
+      "id": "lesson-inventory-step-5",
+      "title": "我补一步与复盘",
+      "body": "若库存位置是 130 件，Q 为 0，负的订货量不意味着能自动退货。若需求突然增加 20%，目标变成 12×10+20=140 件，同一库存位置下建议订货 95 件。这个变化说明方案依赖需求假设，不证明 20 件缓冲能保证某个缺货概率。"
+    }
+  ],
+  "question": {
+    "id": "lesson-inventory-q1",
+    "prompt": "需求 10 件/日，R=7 日，L=3 日，缓冲 20 件，库存位置 45 件。建议订货多少？",
+    "answer": 75,
+    "unit": "件",
+    "tolerance": 0.01,
+    "hint": "先算目标库存 S，再减 IP，并与 0 取较大值。",
+    "explanation": "max(0,10×(7+3)+20−45)=75 件。"
+  },
+  "variant": {
+    "id": "lesson-inventory-q2",
+    "prompt": "需求改为 12 件/日，其余相同，建议订货多少？",
+    "answer": 95,
+    "unit": "件",
+    "tolerance": 0.01,
+    "hint": "只改变需求，保留时间口径。",
+    "explanation": "max(0,12×10+20−45)=95 件。"
+  },
+  "open_task": "完成案例 A，列出数量建议、到货时间风险与两项模型局限。",
+  "rubric": [
+    "单位一致",
+    "无重复扣减",
+    "核查在途到货日",
+    "缓冲没有被当成服务水平保证"
+  ],
+  "misconceptions": [
+    "把现有库存当库存位置",
+    "把 ABC 阈值当强制规定"
+  ],
+  "limitations": [
+    "本课没有估计安全库存分布，也没有多级库存、季节性和批量约束。"
+  ],
+  "synthetic": true
+}

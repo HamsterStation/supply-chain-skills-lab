@@ -1,0 +1,35 @@
+{
+  "id": "ev-mrp",
+  "version": 1,
+  "source_id": "mit-mrp",
+  "original_url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/9aadb1db3146f51a86c244f570d6dcfe_lect15.pdf",
+  "publisher": "MIT",
+  "source_type": "course",
+  "published_at": "2006-09-01",
+  "date_precision": "month",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "讲义讨论物料需求计划以及已知提前期等模型假设。",
+  "editorial_recommendation": "理解需求展开、库存抵扣和时间偏置。",
+  "uncertainty": "原理讲解不是 SAP、IBP 或任何商业软件的实操培训。",
+  "locator": "MRP / Shortcomings of MRP，第 33 页",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "89f2ff7dc40f3f1a78061e9f010a917bc247e71e6e1b217632d812f797ef694d",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/9aadb1db3146f51a86c244f570d6dcfe_lect15.pdf",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

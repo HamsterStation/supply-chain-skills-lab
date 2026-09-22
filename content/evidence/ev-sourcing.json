@@ -1,0 +1,35 @@
+{
+  "id": "ev-sourcing",
+  "version": 1,
+  "source_id": "cips-sourcing",
+  "original_url": "https://www.cips.org/intelligence-hub/sourcing/strategic-sourcing",
+  "publisher": "CIPS",
+  "source_type": "public_method",
+  "published_at": null,
+  "date_precision": "unknown",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "页面将战略寻源描述为考虑价值与总成本，而不仅是单价。",
+  "editorial_recommendation": "先列硬约束，再比较成本和非价格条件。",
+  "uncertainty": "来源没有支持通用供应商评分权重。",
+  "locator": "Strategic sourcing versus traditional sourcing",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "3534f4f6b847d54361930c3f74f1e40c20b6b9fbf76aef4dc6441ed7f27dc334",
+  "hash_basis": "verified_short_excerpt",
+  "independence_key": "https://www.cips.org/intelligence-hub/sourcing/strategic-sourcing",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

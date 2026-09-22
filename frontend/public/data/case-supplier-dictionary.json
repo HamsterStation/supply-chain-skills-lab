@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "seed": 20260922,
+  "version": 1,
+  "dictionary": {
+    "supplier": "虚构代号，不是真实供应商",
+    "unit_price_cny": "人民币元/件；同一报价时点，不含税",
+    "freight_cny": "人民币元/订单，不是每件运费",
+    "lead_days": "确认订单后到货的自然日",
+    "moq_units": "最小起订量，件；没有整箱倍数要求",
+    "quality_status": "教学质量约束",
+    "capacity_status": "须落实的能力信息"
+  },
+  "limitations": [
+    "原创合成数据，非真实报价。",
+    "不含税、仓储、资金占用、质量损失或报废，不能称为完整生命周期 TCO。",
+    "只有最小起订量，没有包装倍数约束。"
+  ]
+}

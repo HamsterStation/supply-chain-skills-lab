@@ -1,0 +1,35 @@
+{
+  "id": "ev-tco",
+  "version": 1,
+  "source_id": "cips-tco",
+  "original_url": "https://www.cips.org/intelligence-hub/finance/total-cost-of-ownership",
+  "publisher": "CIPS",
+  "source_type": "public_method",
+  "published_at": null,
+  "date_precision": "unknown",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "页面区分采购、取得、使用与寿命结束等成本类别。",
+  "editorial_recommendation": "报价比较说明纳入、排除的成本和测算期限。",
+  "uncertainty": "本课只计算已知落地现金支出，不自称完整生命周期成本。",
+  "locator": "What is total cost of ownership / four categories",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "2d8cf1d276d760f222587cdad4ddf0222a398ab033327dbc39efd25db028e1f7",
+  "hash_basis": "verified_short_excerpt",
+  "independence_key": "https://www.cips.org/intelligence-hub/finance/total-cost-of-ownership",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}

@@ -1,0 +1,19 @@
+{
+  "id": "cips-tco",
+  "version": 1,
+  "title": "CIPS · 总拥有成本",
+  "url": "https://www.cips.org/intelligence-hub/finance/total-cost-of-ownership",
+  "publisher": "CIPS",
+  "source_type": "public_method",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "2d8cf1d276d760f222587cdad4ddf0222a398ab033327dbc39efd25db028e1f7",
+  "hash_basis": "verified_short_excerpt",
+  "verified_excerpt": "Procurement costs",
+  "verification_method": "public_browser_text; automated_http_403",
+  "terms_url": "https://www.cips.org/about-us/terms-conditions",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": null
+}

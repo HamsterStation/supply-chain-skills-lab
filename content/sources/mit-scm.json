@@ -1,0 +1,19 @@
+{
+  "id": "mit-scm",
+  "version": 1,
+  "title": "MIT · 供应链 MicroMasters 课程入口",
+  "url": "https://micromasters.mit.edu/scm/",
+  "publisher": "MIT",
+  "source_type": "course",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "unknown",
+  "content_hash": "1e2e8d0cfd98d4611d4a2b647e473a374f6d50d5cb64bc4d8c25fa9cc97c29ae",
+  "hash_basis": "response_bytes",
+  "verified_excerpt": null,
+  "verification_method": "public_http_response",
+  "terms_url": "https://micromasters.mit.edu/scm/",
+  "usage": "人工核查公开页面，仅保存链接、定位与原创简述；不镜像全文。自动采集需单独复核使用条件后启用。",
+  "expert": null
+}

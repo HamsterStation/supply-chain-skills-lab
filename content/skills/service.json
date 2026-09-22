@@ -1,0 +1,64 @@
+{
+  "id": "service",
+  "version": 1,
+  "title": "安全库存与服务定义",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "Safety stock & service level",
+  "aliases": [
+    "CSL",
+    "fill",
+    "rate",
+    "安全库存",
+    "满足率"
+  ],
+  "domain": "C",
+  "roles": [
+    "需求、供应与库存计划",
+    "生产与物料计划"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "进阶"
+  ],
+  "level": "进阶",
+  "kind": "business",
+  "business_problem": "把经验缓冲当作服务水平保证",
+  "prerequisites": [
+    "metrics",
+    "replenishment"
+  ],
+  "objectives": [
+    "解释周期服务水平与按件满足率的区别"
+  ],
+  "tools": [
+    "Excel"
+  ],
+  "lessons": [
+    "lesson-inventory"
+  ],
+  "course_status": "available",
+  "exercises": [
+    "lesson-inventory"
+  ],
+  "deliverable": "服务定义对照表",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-service",
+    "ev-policy"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": [
+    "case-inventory"
+  ]
+}

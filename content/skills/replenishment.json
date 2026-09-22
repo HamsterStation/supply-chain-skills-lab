@@ -1,0 +1,63 @@
+{
+  "id": "replenishment",
+  "version": 1,
+  "title": "库存位置与补货策略",
+  "status": "published",
+  "review_status": "source_checked; subject_matter_review_pending",
+  "english_term": "Inventory position & replenishment",
+  "aliases": [
+    "补货",
+    "在途",
+    "欠交",
+    "订货点",
+    "提前期"
+  ],
+  "domain": "C",
+  "roles": [
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约"
+  ],
+  "industries": [
+    "跨行业通用方法；需结合行业验证"
+  ],
+  "experience": [
+    "基础"
+  ],
+  "level": "基础",
+  "kind": "business",
+  "business_problem": "只看现有库存导致重复采购",
+  "prerequisites": [
+    "abc"
+  ],
+  "objectives": [
+    "计算库存位置与定期补货量"
+  ],
+  "tools": [
+    "Excel"
+  ],
+  "lessons": [
+    "lesson-inventory"
+  ],
+  "course_status": "available",
+  "exercises": [
+    "lesson-inventory"
+  ],
+  "deliverable": "带时间假设的补货建议",
+  "rubric": [
+    "说明数据与业务范围",
+    "计算可复核或步骤可复现",
+    "列出假设和限制",
+    "比较方案而不只给结论"
+  ],
+  "evidence": [
+    "ev-policy"
+  ],
+  "limitations": [
+    "本站分类与学习状态不等同任何职业认证。",
+    "有课程关联不表示已覆盖该技能的所有进阶部分。"
+  ],
+  "case_ids": [
+    "case-inventory"
+  ]
+}

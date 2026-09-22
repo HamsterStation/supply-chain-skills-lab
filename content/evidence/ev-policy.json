@@ -1,0 +1,35 @@
+{
+  "id": "ev-policy",
+  "version": 1,
+  "source_id": "mit-inventory",
+  "original_url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/8b53c45fd26ffff706d815131e8d177e_lect11.pdf",
+  "publisher": "MIT",
+  "source_type": "course",
+  "published_at": "2006-09-01",
+  "date_precision": "month",
+  "discovered_at": "2026-09-22",
+  "checked_at": "2026-09-22",
+  "roles": [
+    "采购与供应商管理",
+    "需求、供应与库存计划",
+    "生产与物料计划",
+    "物流与履约",
+    "供应链数据分析",
+    "供应链综合管理"
+  ],
+  "regions": [
+    "方法参考；未作地区性岗位需求判断"
+  ],
+  "source_claim": "讲义区分连续检查与定期检查，使用库存位置定义订货条件。",
+  "editorial_recommendation": "能解释现有、在途和欠交对订货决策的影响。",
+  "uncertainty": "策略假设需与到货时间和业务约束核对。",
+  "locator": "第 5–7 页：Inventory Position / inventory policy",
+  "excerpt": null,
+  "access_status": "accessible",
+  "content_hash": "33ddb6947f1ec82eb86b97731a20c9e333bab0e9179b008d918893139c54622d",
+  "hash_basis": "response_bytes",
+  "independence_key": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/8b53c45fd26ffff706d815131e8d177e_lect11.pdf",
+  "claim_scope": "source_specific",
+  "job": null,
+  "case_metrics": null
+}
