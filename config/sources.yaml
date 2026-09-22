@@ -4,6 +4,23 @@ max_sources: 20
 search_provider: disabled
 model_provider: disabled
 sources:
+  - id: mit-curriculum
+    title: MIT OCW 物流系统课程目录（2006 年秋季）
+    url: https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/pages/lecture-notes/
+    allowed_hosts: [ocw.mit.edu]
+    selector: '#course-content-section'
+    provider: public_page
+    enabled: true
+    terms_reviewed: true
+    terms_checked_at: '2026-09-22'
+    terms_url: https://ocw.mit.edu/pages/privacy-and-terms-of-use/
+    reason: 已核查 OCW 使用条款与 robots；仅每周检查目录正文，保存指纹、出处与原创简述，不镜像讲义。
+    skill_ids: [forecast, replenishment, material, transport]
+    initial_review:
+      required_text: [Demand forecasting, Inventory management, MRP and DRP systems, Transportation]
+      source_claim: 该课程目录的第 3–6 次课涉及需求预测，第 7–16 次课涉及库存管理及相关练习（包括第 10 次概率统计复习），第 15 次列有 MRP/DRP，第 20–25 次课涉及运输；定位为 Lecture Notes 的 SES/TOPICS 表。这只能证明该历史课程的教学覆盖。
+      editorial_recommendation: 为计划、库存与物流方向增加一个可核查的延伸阅读入口；先完成本站基线预测与库存练习，再按自己的业务问题选择原始讲义。不自动更改现有学习路线。
+      uncertainty: 原课程为 2006 年秋季，不能据此推断当前岗位要求、现行标准或现代软件的操作方式。部分讲义有各自署名与权利说明，需逐份核查后再使用。课程目录不代表已阅读或验证所有讲义。
   - id: mit-scm
     title: MIT SCM 课程入口
     url: https://micromasters.mit.edu/scm/

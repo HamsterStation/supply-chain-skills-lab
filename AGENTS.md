@@ -5,7 +5,7 @@ This independent, multi-user learning app with public GitHub Pages courses and G
 - Preserve stable content IDs and integer versions. Content is safe JSON, never executable MDX or HTML. Escape all text.
 - Published skills must link to accessible primary evidence. Separate source_claim, editorial_recommendation and uncertainty. Never invent access dates, publication dates, expert competence, consensus or impact figures.
 - Scope laws and standards by region and version. Old foundational teaching is not automatically obsolete; an old job listing is not current demand.
-- Keep personal data, secrets, SQLite databases, submissions, drafts, model conversations and collector state outside Git. Do not log them.
+- Keep personal data, secrets, databases, submissions and model conversations outside the public course repository and logs. Authorized personal state belongs only in the learner’s selected private repository. Public source checkpoints may use the dedicated controlled state branch; draft content proposals may use the dedicated review branch.
 - No company-file upload or real ERP/procurement/payment integration. Synthetic data must be labeled.
 - Every remote personal API requires server-side authentication and owner-only private-repository checks. Local export needs a signed-in personal UI. Preserve OAuth state, PKCE, session expiry, version binding and rate limits. No AI API is enabled.
 - Automatic updater may ONLY ADD schema-valid JSON to content/updates and content/evidence. It may not rewrite human lessons, change routes, code, workflows, auth, dependencies, tests or deployment.

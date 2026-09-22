@@ -1,0 +1,19 @@
+{
+  "id": "mit-curriculum",
+  "version": 1,
+  "title": "MIT OCW · 物流系统课程目录（2006 年秋季）",
+  "url": "https://ocw.mit.edu/courses/esd-260j-logistics-systems-fall-2006/pages/lecture-notes/",
+  "publisher": "MIT OpenCourseWare",
+  "source_type": "course",
+  "access_status": "accessible",
+  "checked_at": "2026-09-22",
+  "published_at": null,
+  "date_precision": "网页发布日期未知；课程开设学期为 2006 年秋季",
+  "content_hash": "aa9ddbc1f15664b43e2fe785387d47cc9c2061bd238911548e4062770d8ec7c7",
+  "hash_basis": "response_bytes",
+  "verified_excerpt": null,
+  "verification_method": "public_http_response",
+  "terms_url": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
+  "usage": "2026-09-22 核查 OCW CC BY-NC-SA 4.0 使用条款及 robots，允许本站 User-Agent 访问此目录。仅作非商业教学发现，保留出处、正文指纹与原创简述，不镜像全文。原始资料署名 MIT OpenCourseWare；涉及改编时遵守署名、非商业和相同方式共享要求。逐份讲义另核查权利说明；MIT 未背书本站。",
+  "expert": null
+}

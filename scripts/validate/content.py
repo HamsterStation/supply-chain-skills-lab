@@ -92,6 +92,9 @@ def safe_proposal(path,obj,root=ROOT):
   assert not ancestor.is_symlink(),'Symlink not permitted'
  assert target.resolve().is_relative_to(root.resolve())
  validate_item('updates',obj)
+ for field,kind in [('source_ids','sources'),('skill_ids','skills')]:
+  for id in obj[field]:
+   assert re.fullmatch(r'[a-z][a-z0-9-]{1,79}',id) and (root/'content'/kind/(id+'.json')).is_file(),'Unknown proposal reference'
  return target
 if __name__=='__main__':
  print(json.dumps(validate(),ensure_ascii=False))

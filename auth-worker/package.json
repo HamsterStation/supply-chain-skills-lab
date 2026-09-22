@@ -1,1 +1,1 @@
-{"name":"supply-chain-auth","private":true,"type":"module","scripts":{"test":"node --test test/*.test.mjs","deploy":"wrangler deploy","dev":"wrangler dev"},"devDependencies":{"wrangler":"^4.0.0"}}
+{"name":"supply-chain-auth","private":true,"type":"module","scripts":{"test":"node --test test/*.test.mjs","deploy":"wrangler deploy","dev":"wrangler dev","test:runtime":"node --test test-runtime/*.test.mjs"},"devDependencies":{"miniflare":"5.20260921.0-alpha","wrangler":"^4.0.0"}}

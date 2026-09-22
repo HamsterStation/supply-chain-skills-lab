@@ -81,4 +81,14 @@ npx wrangler deploy
 
 D1 运维备份可以使用 `wrangler d1 export supply-chain-auth --remote --output 私有路径/auth-backup.sql`；备份包含加密凭据，仍是敏感文件，不进 Git。恢复到新 D1 数据库后核查迁移版本和密钥配置，再切换绑定。TOKEN_ENCRYPTION_KEY 必须独立安全备份；如果遗失则使旧会话失效并要求所有人重新登录，不尝试解密或导出原 token。
 
-目前没有实际托管账号绑定和 GitHub App Client ID/secret，不能把本地模拟测试报告成真实 OAuth/多用户远程联调。上线后至少用两个独立 GitHub 测试账户验证 A 无法列出、读取或写入 B 的私人仓库，再开放他人使用。
+2026-09-22 已部署 GitHub Pages、Cloudflare Worker 和 D1，并完成 HamsterStation 的真实 GitHub 登录、私有仓库选择和记录 PR 保存。GitHub App 安装权限已核对为仅选择 supply-chain-learning-records。两个不同真实账号、真实多设备和撤销授权后的全链路验证仍待补充；本地两账号 Mock 测试不能替代这些验证。
+
+当前网站：https://hamsterstation.github.io/supply-chain-skills-lab/
+
+当前服务：https://supply-chain-auth.supply-chain-auth.workers.dev
+
+GitHub App：https://github.com/apps/supply-chain-skills-lab-hs
+
+部署回归可运行 Check deployed login service 工作流；它只检查健康状态、匿名拒绝和授权跳转，完整登录仍以真实浏览器结果为准。OAuth 与 GitHub API 请求使用 manual 重定向并拒绝 3xx，避免不受 workerd 支持的 redirect:error，也防止凭据被转发到其他地址。
+
+本机 scripts/setup/github_app.py 可通过官方 manifest 流程登记新安装，不需要在聊天中复制密钥。生成的 private/github-app-secret.json 仅限本机读取并已忽略；请按密钥文件管理，不要加入公共仓库。

@@ -26,6 +26,8 @@ jobs:
       - run: python -m scripts.validate.content
       - run: pytest -q
       - run: node --test auth-worker/test/*.test.mjs
+      - run: npm ci --prefix auth-worker
+      - run: npm run test:runtime --prefix auth-worker
       - run: python -m scripts.generate.bundle
       - run: npm ci --prefix frontend
       - run: npm run build --prefix frontend

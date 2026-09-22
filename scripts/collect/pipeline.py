@@ -60,12 +60,18 @@ def process(config,state,loader=fetch):
    if fingerprint in state['rejected'] or fingerprint in state['proposed']:
     state['sources'][sid]={'url':url,'content_hash':content_hash,'checked_at':stamp()};report.append({'source':sid,'status':'already_handled'});successful+=1;continue
    # First allowed observation establishes a baseline; it is not a fabricated new publication.
-   if not old:
+   initial=source.get('initial_review') if not old else None
+   if initial and not all(marker in text for marker in initial['required_text']):raise ValueError('Initial source claim could not be verified against the configured passage')
+   if not old and not initial:
     state['sources'][sid]={'url':url,'content_hash':content_hash,'checked_at':stamp()};report.append({'source':sid,'status':'baseline_created'});successful+=1;state['failures'].pop(sid,None);continue
    if len(drafts)>=limit:report.append({'source':sid,'status':'deferred_by_limit'});continue
-   item={'id':'update-'+fingerprint[:20],'version':1,'status':'draft','update_type':'evidence','title':source['title']+'：正文变化待核查','created_at':datetime.now(timezone.utc).date().isoformat(),'summary':'受控页面的正文指纹发生变化。此草稿不推断变化原因，也不声称出现了新的行业共识。','source_ids':[sid],'skill_ids':source['skill_ids'],'source_claim':'页面经过允许的公开访问；正文发生变化，专业结论尚待逐条人工提取与核查。','editorial_recommendation':'复核下列技能是否需要补充解释、练习或证据；现有课程正文不自动改写。','uncertainty':'页面变化不等于知识更新。仍需核查原文、适用对象、发布日期、地区及是否仅为宣传。','original_urls':[url],'impact':'仅增加草稿，不改变基础路线、已发布课程或个人学习记录。','checks':['来源域名白名单','robots 与配置的使用条件','正文去噪与 SHA-256 去重','结构化数据 schema'],'human_review':['比对原页面并定位实质变化','补充明确的 source_claim 与必要短摘录','确认适用岗位与地区','审核后自行决定是否发布']}
+   item={'id':'update-'+fingerprint[:20],'version':1,'status':'draft','update_type':'evidence','title':source['title']+'：正文变化待核查','created_at':datetime.now(timezone.utc).date().isoformat(),'summary':'受控页面的正文指纹发生变化。此草稿不推断变化原因，也不声称出现了新的行业共识。','source_ids':[sid],'skill_ids':source['skill_ids'],'source_claim':'页面经过允许的公开访问；正文发生变化，专业结论尚待逐条人工提取与核查。','editorial_recommendation':'复核下列技能是否需要补充解释、练习或证据；现有课程正文不自动改写。','uncertainty':'页面变化不等于知识更新。仍需核查原文、适用对象、发布日期、地区及是否仅为宣传。','original_urls':[request_url],'impact':'仅增加草稿，不改变基础路线、已发布课程或个人学习记录。','checks':['来源域名白名单','robots 与配置的使用条件','正文去噪与 SHA-256 去重','结构化数据 schema'],'human_review':['比对原页面并定位实质变化','补充明确的 source_claim 与必要短摘录','确认适用岗位与地区','审核后自行决定是否发布']}
+   if initial:
+    item.update(title=source['title']+'：首次收录核查',summary='首次核查并登记这份历史教学资料，不表示原文最近发布或发生变化。',source_claim=initial['source_claim'],editorial_recommendation=initial['editorial_recommendation'],uncertainty=initial['uncertainty'])
+    item['checks'].append('首次登记结论的原文定位标记逐项匹配')
+    item['human_review'][0]='核查首次登记的来源结论与原文定位'
    safe_proposal('content/updates/'+item['id']+'.json',item)
-   drafts.append({'path':'content/updates/'+item['id']+'.json','data':item,'fingerprint':fingerprint,'before_hash':old['content_hash'],'after_hash':content_hash})
+   drafts.append({'path':'content/updates/'+item['id']+'.json','data':item,'fingerprint':fingerprint,'before_hash':old['content_hash'] if old else digest(''),'after_hash':content_hash})
    state['sources'][sid]={'url':url,'content_hash':content_hash,'checked_at':stamp()};state['proposed'].append(fingerprint);state['failures'].pop(sid,None);successful+=1;report.append({'source':sid,'status':'draft_created'})
   except Exception as e:
    previous=state['failures'].get(sid,{});state['failures'][sid]={'attempts':previous.get('attempts',0)+1,'last_at':stamp(),'error':type(e).__name__,'reason':str(e)[:160]};report.append({'source':sid,'status':'failed','reason':str(e)[:160]})

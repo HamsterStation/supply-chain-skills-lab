@@ -4,7 +4,7 @@ class Fault extends Error{constructor(status,message){super(message);this.status
 const fail=(status,message)=>{throw new Fault(status,message)};
 async function body(request,max=800000){const len=Number(request.headers.get('content-length')||0);if(len>max)fail(413,'内容太大，请先导出归档');if(!request.headers.get('content-type')?.startsWith('application/json'))fail(415,'仅接受 JSON');const reader=request.body?.getReader();let chunks=[],size=0;while(reader){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>max){await reader.cancel();fail(413,'内容太大，请先导出归档')}chunks.push(value)}const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length}try{return JSON.parse(new TextDecoder().decode(bytes))}catch{fail(400,'JSON 格式错误')}}
 async function github(token,path,method='GET',data,optional=false){
- const response=await fetch(API+path,{method,headers:{Authorization:'Bearer '+token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2026-03-10','User-Agent':'SupplyChainSkillsLab','Content-Type':'application/json'},body:data===undefined?undefined:JSON.stringify(data),signal:AbortSignal.timeout(15000),redirect:'error'});
+ const response=await fetch(API+path,{method,headers:{Authorization:'Bearer '+token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2026-03-10','User-Agent':'SupplyChainSkillsLab','Content-Type':'application/json'},body:data===undefined?undefined:JSON.stringify(data),signal:AbortSignal.timeout(15000),redirect:'manual'});
  if(optional&&response.status===404)return null;
  if(!response.ok){if(response.status===401)fail(401,'GitHub 授权已失效，请重新登录');if(response.status===409||response.status===422)fail(409,'仓库已变化或存在分支冲突，请先重新读取');if(response.status===403)fail(403,'请检查 GitHub App 的所选仓库权限或请求额度');fail(502,'GitHub 请求失败，请稍后重试')}
  return response.status===204?null:response.json();
@@ -21,6 +21,7 @@ async function readRemote(s,repo){
 }
 export default {async fetch(request,env){
  const url=new URL(request.url);const allowed=new URL(env.SITE_URL).origin;const origin=request.headers.get('origin');const cors={'Access-Control-Allow-Origin':allowed,'Access-Control-Allow-Headers':'Authorization, Content-Type','Access-Control-Allow-Methods':'GET, POST, OPTIONS','Vary':'Origin','Cache-Control':'no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff'};
+ let phase='request';
  const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{...cors,'Content-Type':'application/json'}});
  try{
   if(url.pathname==='/health')return json({ready:!!env.GITHUB_CLIENT_SECRET&&!!env.TOKEN_ENCRYPTION_KEY&&!env.GITHUB_CLIENT_ID.startsWith('CONFIGURE')});
@@ -36,12 +37,12 @@ export default {async fetch(request,env){
   }
   if(url.pathname==='/auth/callback'&&request.method==='GET'){
    const state=url.searchParams.get('state'),code=url.searchParams.get('code');const binding=(request.headers.get('cookie')??'').split('; ').find(x=>x.startsWith('__Host-scsl-oauth='))?.split('=')[1];if(!state||!code||!binding)fail(400,'登录回调无效，请重新开始');
-   const stored=await env.DB.prepare('DELETE FROM oauth_states WHERE id=? AND binding=? AND expires>? RETURNING *').bind(await hash(state),await hash(binding),now()).first();if(!stored)fail(400,'登录请求已失效或不属于此浏览器');
-   const tokenResponse=await fetch('https://github.com/login/oauth/access_token',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify({client_id:env.GITHUB_CLIENT_ID,client_secret:env.GITHUB_CLIENT_SECRET,code,code_verifier:stored.verifier,redirect_uri:url.origin+'/auth/callback'}),signal:AbortSignal.timeout(15000),redirect:'error'});const tokens=await tokenResponse.json();if(!tokenResponse.ok||!tokens.access_token)fail(401,'GitHub 登录未完成');
-   const user=await github(tokens.access_token,'/user');const opaque=random(),ticket=random();const expires=now()+Math.min(Number(tokens.expires_in)||28800,28800);
-   await env.DB.prepare('INSERT INTO sessions(id,user_id,login,token_cipher,expires) VALUES(?,?,?,?,?)').bind(await hash(opaque),user.id,user.login,await seal(tokens.access_token,env.TOKEN_ENCRYPTION_KEY),expires).run();
-   await env.DB.prepare('INSERT INTO accounts(user_id) VALUES(?) ON CONFLICT(user_id) DO NOTHING').bind(user.id).run();
-   await env.DB.prepare('INSERT INTO handoffs(id,session_id,app_challenge,expires) VALUES(?,?,?,?)').bind(await hash(ticket),await seal(opaque,env.TOKEN_ENCRYPTION_KEY),stored.app_challenge,now()+60).run();
+   phase='login_state';const stored=await env.DB.prepare('DELETE FROM oauth_states WHERE id=? AND binding=? AND expires>? RETURNING *').bind(await hash(state),await hash(binding),now()).first();if(!stored)fail(400,'登录请求已失效或不属于此浏览器');
+   phase='login_token_request';const tokenResponse=await fetch('https://github.com/login/oauth/access_token',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json','User-Agent':'SupplyChainSkillsLab'},body:JSON.stringify({client_id:env.GITHUB_CLIENT_ID,client_secret:env.GITHUB_CLIENT_SECRET,code,code_verifier:stored.verifier,redirect_uri:url.origin+'/auth/callback'}),signal:AbortSignal.timeout(15000),redirect:'manual'});phase='login_token_response';if(tokenResponse.status>=300&&tokenResponse.status<400)fail(502,'GitHub 登录服务返回了未预期的跳转，请稍后重试');const tokens=await tokenResponse.json().catch(()=>fail(502,'GitHub 登录服务返回了异常响应，请从网站重新登录'));if(!tokenResponse.ok||!tokens.access_token)fail(401,'GitHub 登录未完成');
+   phase='login_user';const user=await github(tokens.access_token,'/user');const opaque=random(),ticket=random();const expires=now()+Math.min(Number(tokens.expires_in)||28800,28800);
+   phase='login_session';await env.DB.prepare('INSERT INTO sessions(id,user_id,login,token_cipher,expires) VALUES(?,?,?,?,?)').bind(await hash(opaque),user.id,user.login,await seal(tokens.access_token,env.TOKEN_ENCRYPTION_KEY),expires).run();
+   phase='login_account';await env.DB.prepare('INSERT INTO accounts(user_id) VALUES(?) ON CONFLICT(user_id) DO NOTHING').bind(user.id).run();
+   phase='login_handoff';await env.DB.prepare('INSERT INTO handoffs(id,session_id,app_challenge,expires) VALUES(?,?,?,?)').bind(await hash(ticket),await seal(opaque,env.TOKEN_ENCRYPTION_KEY),stored.app_challenge,now()+60).run();
    // GitHub credentials never reach the browser. A one-use, PKCE-bound ticket travels in the fragment.
    return new Response(null,{status:302,headers:{Location:env.SITE_URL+'#auth/'+ticket,'Set-Cookie':'__Host-scsl-oauth=; Secure; HttpOnly; SameSite=Lax; Path=/; Max-Age=0','Cache-Control':'no-store','Referrer-Policy':'no-referrer'}});
   }
@@ -76,5 +77,5 @@ export default {async fetch(request,env){
    await env.DB.prepare('UPDATE accounts SET last_sync_at=? WHERE user_id=?').bind(new Date().toISOString(),s.user_id).run();return json({sha:saved.content.sha,pr_url,saved:true});
   }
   fail(404,'没有此接口');
- }catch(e){return json({error:e instanceof Fault?e.message:'服务暂时无法完成请求，请重试；现有记录未清空'},e instanceof Fault?e.status:500)}
+ }catch(e){return json({error:e instanceof Fault?e.message:'服务暂时无法完成请求，请重试；现有记录未清空',code:e instanceof Fault&&e.status<500?'request_rejected':phase},e instanceof Fault?e.status:500)}
 },async scheduled(_event,env){for(const table of ['oauth_states','handoffs','sessions','rate_limits'])await env.DB.prepare(`DELETE FROM ${table} WHERE expires < ?`).bind(now()).run()}};

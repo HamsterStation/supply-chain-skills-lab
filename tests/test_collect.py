@@ -37,3 +37,13 @@ def test_request_preserves_directory_slash_and_robots_path():
  r=process(cfg,{},directory_loader)
  assert r['report'][0]['status']=='baseline_created'
  assert seen==['https://example.org/robots.txt','https://example.org/course/']
+def test_explicit_first_observation_is_verified_and_proposed_once():
+ cfg=config();cfg['sources'][0]['initial_review']={'required_text':['original mock source'],
+  'source_claim':'Test fixture text was observed, not a new publication.',
+  'editorial_recommendation':'Test fixture only; no teaching recommendation.',
+  'uncertainty':'Not a real research source.'}
+ result=process(cfg,{},loader);assert len(result['drafts'])==1;validate_proposal(result)
+ assert '首次' in result['drafts'][0]['data']['title']
+ assert process(cfg,result['state'],loader)['drafts']==[]
+ cfg['sources'][0]['initial_review']['required_text']=['nonexistent passage']
+ missing=process(cfg,{},loader);assert not missing['drafts'];assert missing['report'][0]['status']=='failed'
