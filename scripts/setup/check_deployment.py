@@ -2,6 +2,7 @@
 import json
 import os
 import secrets
+import socket
 import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
@@ -28,8 +29,15 @@ def check(root):
         with response:
             return response.status, response.headers, response.read(5000)
 
+    print('Public DNS addresses:', sorted({entry[4][0] for entry in socket.getaddrinfo(parsed.hostname,443)}))
     status, headers, data = fetch('/health')
-    assert status == 200 and json.loads(data)['ready'] is True, 'Service is not configured'
+    print('Health HTTP status:', status, 'content type:', headers.get('Content-Type'))
+    try:
+        health = json.loads(data)
+    except ValueError:
+        health = {}
+    print('Configured:', health.get('ready', 'no health JSON received'))
+    assert status == 200 and health.get('ready') is True, 'Service is not ready; see health status above'
     assert headers['Cache-Control'] == 'no-store'
     for path in ['/api/me', '/api/repos', '/api/state', '/api/sync', '/api/repository']:
         assert fetch(path)[0] == 401, 'Anonymous access was not rejected'
